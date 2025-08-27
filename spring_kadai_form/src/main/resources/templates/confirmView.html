@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>確認</title>
+    <style>
+        body { font-family: sans-serif; }
+        .wrap { width: 720px; margin: 20px auto; }
+        h1 { font-size: 28px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #999; padding: 8px; }
+        th { background: #f2f2f2; width: 30%; }
+        .btns { margin-top: 16px; }
+        .btn { padding: 6px 14px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>入力内容をご確認ください。</h1>
+    <table th:object="${contactForm}">
+        <tr>
+            <th>お名前</th>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <th>メールアドレス</th>
+            <td th:text="*{email}"></td>
+        </tr>
+        <tr>
+            <th>お問い合わせ内容</th>
+            <td th:text="*{message}"></td>
+        </tr>
+    </table>
+    <div class="btns">
+        <a class="btn" th:href="@{/form}">戻る</a>
+        <button class="btn" onclick="alert('送信完了')">送信</button>
+    </div>
+</div>
+</body>
+</html>
